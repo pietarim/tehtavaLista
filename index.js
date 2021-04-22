@@ -29,7 +29,7 @@ console.log('salaus')
 
 /* 'mongodb+srv://pietari:pietari@maaliskuu.jawq8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' */
 
-mongoose.connect('mongodb+srv://pietari:pietari@cluster0.qmhqv.mongodb.net/tehtavalista?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })    
+mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true })    
     .then(() => {
         console.log('connected to MongoDB')
     })
