@@ -1,5 +1,5 @@
 /* import express from 'express'; */
-require('dotenv').config()
+/* require('dotenv').config() */
 const express = require('express')
 /* import Tehtava from './schema/tehtava' */
 const jwt = require('jsonwebtoken')
