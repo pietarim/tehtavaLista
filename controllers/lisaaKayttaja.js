@@ -7,7 +7,6 @@ const Kayttaja = require('../schema/kayttaja')
 
 kayttajaRouter.post('/', async (req, res) => {
     const body = req.body
-    console.log('lisääminen käynnissä')
     const saltRounds = 10
     const salasana = await bcrypt.hash(body.salasana, saltRounds)
 

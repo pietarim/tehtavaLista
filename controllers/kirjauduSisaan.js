@@ -11,12 +11,8 @@ const salaus = process.env.SALAUS
 kirjautuminenRouter.post('/', async (req, res) => {
   
   const body = req.body
-  console.log(body, ' tässä on body')
-  console.log(body.tunnus, ' tässä on tunnus')
-  console.log(body.salasana, ' tässä on salaus')
 
   const kayttaja = await Kayttaja.findOne({ tunnus: body.tunnus })
-  console.log(kayttaja, ' tässä on kaikki etsityn käyttäjän tiedot')
   if (!kayttaja) {
     return res.status(401).json({
       error: 'väärä tunnus tai salasana'
@@ -24,10 +20,6 @@ kirjautuminenRouter.post('/', async (req, res) => {
   }
 
   const salasanaOikein = await bcrypt.compare(body.salasana, kayttaja.salasana)
-
-  console.log('WOLOLOO WOLOLOO WOLOLOO WOLOLOO WOLOLOO WOLOLOO ')
-  console.log(salasanaOikein)
-
     const kayttajaOikein = (kayttaja.tunnus === body.tunnus) ?
     false
     : true
@@ -43,7 +35,6 @@ kirjautuminenRouter.post('/', async (req, res) => {
   }
 
   const token = jwt.sign(userForToken, salaus)
-  console.log('error if lauseen päästy ohi')
 
   res
     .status(200)

@@ -24,9 +24,6 @@ const cors = require('cors')
 const salaus = process.env.SALAUS
 const mongodb = process.env.DBURL
 
-console.log(salaus)
-console.log('salaus')
-
 /* 'mongodb+srv://pietari:pietari@maaliskuu.jawq8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' */
 
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true })    
@@ -79,5 +76,5 @@ app.post('/api/tehtava', async (req,res) => {
 const server = http.createServer(app)
 
 app.listen(3001, () => {
-    console.log(`Server is running at port 3001`)
+    /* console.log(`Server is running at port 3001`) */
 })
